@@ -635,7 +635,7 @@ class RovioNode{
     // Get image from msg
     cv_bridge::CvImagePtr cv_ptr;
     try {
-        cv_ptr = cv_bridge::toCvCopy(img, img->encoding); //smk: input image encoding doesn't matter as it gets converted to float point later
+        cv_ptr = cv_bridge::toCvCopy(img, sensor_msgs::image_encodings::TYPE_8UC1); //smk: input image encoding doesn't matter as it gets converted to float point later
     } catch (cv_bridge::Exception& e) {
       ROS_ERROR("cv_bridge exception: %s", e.what());
       return;
